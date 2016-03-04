@@ -3,8 +3,10 @@
   command: "readlink -f {{symfony2_project_root}}/current"
   register: current_path
 
-- debug: msg=current_path
+- name: Check for previous tenants
+  shell: "ls {{symfony2_project_root}}/current/app/config/config_tenant_*.yml"
+  register: previous_tenants
 
 - name: Copy tenants from old host
-  shell: "cp {{symfony2_project_root}}/current/app/config/config_tenant* {{symfony2_release_destination}}/app/config/"
-  when: current_path.stdout != symfony2_release_destination and symfony2_tenants|bool
+  shell: "cp {{symfony2_project_root}}/current/app/config/config_tenant_*.yml {{symfony2_release_destination}}/app/config/"
+  when: current_path.stdout != symfony2_release_destination and symfony2_tenants
