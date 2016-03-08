@@ -6,6 +6,7 @@
 - name: Check for previous tenants
   shell: "ls {{symfony2_project_root}}/current/app/config/config_tenant_*.yml"
   register: previous_tenants
+  ignore_errors: true
 
 - name: Copy tenants from old host
   shell: "cp {{symfony2_project_root}}/current/app/config/config_tenant_*.yml {{symfony2_release_destination}}/app/config/"
