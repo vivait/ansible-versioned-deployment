@@ -1,4 +1,5 @@
 ---
+release_dry_run: false
 symfony2_versioned_deployment: false
 symfony2_project_branch: master
 symfony2_project_source: '{{ playbook_dir }}/../'
