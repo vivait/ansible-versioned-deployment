@@ -12,7 +12,6 @@
     - always
 
 - set_fact: symfony2_project_release="dev-master"
-  when: "not current_version_command.failed and current_version_command.rc != 0"
+  when: "current_version_command.failed or current_version_command.rc != 0"
   tags:
     - always
-
