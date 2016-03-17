@@ -1,6 +1,14 @@
 ---
 - include: release_destination.yml
+
 - include: structure.yml
+  when: not release_dry_run
+
 - include: sync.yml
+  when: not release_dry_run
+
 - include: symlinks.yml
+  when: not release_dry_run
+
 - include: tenants.yml
+  when: not release_dry_run
