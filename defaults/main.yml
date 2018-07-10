@@ -14,3 +14,8 @@ shared_directories:
   - "web/uploads"
 
 http_user: www-data
+
+symfony_versioned_deloyment_tenant_list: []
+symfony_versioned_deployment_config_recreation: false
+symfony_versioned_deployment_parameters_src: false
+symfony_versioned_deployment_parameters_dest: "{{symfony2_release_destination}}/app/config/parameters.yml"
