@@ -9,10 +9,10 @@
   file: state=link src="{{symfony2_project_root}}/shared/{{item}}" path="{{symfony2_release_destination}}/{{item}}" force=yes
   with_items: shared_files
 
-- name: Empty shared folders of VCS placeholders before symlink
+- name: Empty shared folders before symlink
   file:
     state: absent
-    path: "{{symfony2_release_destination}}/{{item}}/.gitignore"
+    path: "{{symfony2_release_destination}}/{{item}}/"
   with_items: shared_directories
 
 - name: Create shared folders symlinks
