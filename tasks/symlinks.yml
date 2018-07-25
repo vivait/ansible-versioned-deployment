@@ -12,7 +12,7 @@
 - name: Empty shared folders before symlink
   file:
     state: absent
-    path: "{{symfony2_release_destination}}/{{item}}/"
+    path: "{{symfony2_release_destination}}/{{item}}"
   with_items: shared_directories
 
 - name: Create shared folders symlinks
