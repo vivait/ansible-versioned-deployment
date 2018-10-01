@@ -1,7 +1,7 @@
 ---
 - local_action: shell cd {{symfony2_project_source}} && git fetch -t && git describe --abbrev=0 --tags
   register: current_version_command
-  sudo: yes
+  become: yes
   ignore_errors: yes
   tags:
     - always
